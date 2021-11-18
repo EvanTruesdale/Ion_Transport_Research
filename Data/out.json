@@ -1,0 +1,112 @@
+{
+    "model": {
+        "type_map": [
+            "La",
+            "Li",
+            "O",
+            "Zr"
+        ],
+        "descriptor": {
+            "type": "se_e2_a",
+            "rcut_smth": 0.5,
+            "rcut": 6.0,
+            "sel": [
+                46,
+                92,
+                46,
+                46
+            ],
+            "neuron": [
+                240,
+                120,
+                60,
+                30,
+                10
+            ],
+            "type_one_side": false,
+            "resnet_dt": false,
+            "seed": 1,
+            "axis_neuron": 4,
+            "activation_function": "tanh",
+            "precision": "float64",
+            "trainable": true,
+            "exclude_types": [],
+            "set_davg_zero": false
+        },
+        "fitting_net": {
+            "neuron": [
+                240,
+                240,
+                240
+            ],
+            "resnet_dt": true,
+            "seed": 1,
+            "type": "ener",
+            "numb_fparam": 0,
+            "numb_aparam": 0,
+            "activation_function": "tanh",
+            "precision": "float64",
+            "trainable": true,
+            "rcond": 0.001,
+            "atom_ener": []
+        },
+        "data_stat_nbatch": 10,
+        "data_stat_protect": 0.01
+    },
+    "learning_rate": {
+        "type": "exp",
+        "start_lr": 0.001,
+        "stop_lr": 3.51e-08,
+        "decay_steps": 5000,
+        "scale_by_worker": "linear"
+    },
+    "loss": {
+        "type": "ener",
+        "start_pref_e": 0.02,
+        "limit_pref_e": 1,
+        "start_pref_f": 1000,
+        "limit_pref_f": 1,
+        "start_pref_v": 100,
+        "limit_pref_v": 1,
+        "start_pref_ae": 0.0,
+        "limit_pref_ae": 0.0,
+        "start_pref_pf": 0.0,
+        "limit_pref_pf": 0.0
+    },
+    "training": {
+        "training_data": {
+            "systems": [
+                "npy_LLZO_1",
+                "npy_LLZO_1_5"
+            ],
+            "batch_size": "auto",
+            "set_prefix": "set",
+            "auto_prob": "prob_sys_size",
+            "sys_probs": null
+        },
+        "validation_data": {
+            "systems": [
+                "npy_LLZO_2"
+            ],
+            "batch_size": 1,
+            "numb_btch": 3,
+            "set_prefix": "set",
+            "auto_prob": "prob_sys_size",
+            "sys_probs": null
+        },
+        "numb_steps": 1000000,
+        "seed": 1,
+        "disp_file": "lcurve.out",
+        "disp_freq": 100,
+        "save_freq": 1000,
+        "numb_test": 1,
+        "save_ckpt": "model.ckpt",
+        "disp_training": true,
+        "time_training": true,
+        "profiling": false,
+        "profiling_file": "timeline.json",
+        "tensorboard": false,
+        "tensorboard_log_dir": "log",
+        "tensorboard_freq": 1
+    }
+}

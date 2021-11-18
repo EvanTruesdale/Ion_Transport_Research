@@ -1,0 +1,25 @@
+# ELECTRONIC CONDITIONS
+ISMEAR = 0 # smearing method
+SIGMA = 0.2 # smearing size (~0.2)
+EDIFF = 1E-4 # Global energy break condition
+ENCUT = 500 # Default is highest ENMAX in POTCAR, find optimal values
+
+# MD PARAMETERS
+IBRION = 0 # selects MD calculation (0 -> AIMD, 1-2 -> static ionic relaxation)
+MDALGO = 2 # selects NVT ensemble
+ISIF = 2 # selects Nose-Hoover thermostat
+SMASS = 0.0 # specifies Nose mass, a fictional mass for ficitional coordinate of heat bath, set 0 and monitor temperature
+LREAL = Auto # projection operators are evaluated in real space, faster but slightly less accurate
+ALGO = Normal
+PREC = Normal
+ISYM = 0 # symmetry parameter, 0 is best for MD, no symmetry but psi_k = psi*_-k
+TEBEG = 1500 # starting temperature, high T samples V more efficiently
+TEEND = 1500 # ending temperature must be the same as starting
+NSW = 150 # step number
+POTIM = 2.0 # time step in femtoseconds
+NCORE = 20 # Half of one node, which is split in two
+
+# PRINTING PARAMETERS
+LWAVE = .FALSE.
+LCHARG = .FALSE.
+# don't need to write wavefunction and charge density
